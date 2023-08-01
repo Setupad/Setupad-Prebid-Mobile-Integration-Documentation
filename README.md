@@ -1,4 +1,4 @@
 [documentation]
 
 ----
-[documentation]=https://setupad.github.io/Setupad-Prebid-Mobile-Integration-Documentation/
+[documentation]: https://setupad.github.io/Setupad-Prebid-Mobile-Integration-Documentation/
