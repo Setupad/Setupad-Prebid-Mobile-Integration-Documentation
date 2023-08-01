@@ -1,5 +1,5 @@
 ---
-title: Banner
+title: Interstitial ad
 layout: home
 parent: Kotlin
 nav_order: 4
@@ -41,4 +41,4 @@ private fun createListener(): AdManagerInterstitialAdLoadCallback {
            Log.e(Tag, "Ad failed to load: $loadAdError")
        }
    }
-``
+```
