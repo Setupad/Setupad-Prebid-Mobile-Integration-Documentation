@@ -51,7 +51,7 @@ fun createBannerAd(context: Context) {
     }
 ```
 
-##Ad listener
+## Ad listener
 
 Ad listener is used to check whether the ad was successfully loaded. In addition, the findPrebidCreativeSize method is used to resize the ad if needed.
 ```kotlin
@@ -73,7 +73,7 @@ private fun createGAMListener(adView: AdManagerAdView): AdListener {
     }
 ```
 
-##Destroying ad
+## Destroying ad
 
 Add an onDestroy() for the banner to be destroyed with the activity.
 ```kotlin
