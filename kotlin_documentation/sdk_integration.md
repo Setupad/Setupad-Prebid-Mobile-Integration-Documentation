@@ -1,7 +1,7 @@
 ---
 title: SDK integration
 layout: home
-parent: Documentation
+parent: Kotlin
 nav_order: 2
 ---
 
