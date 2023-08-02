@@ -5,6 +5,6 @@ nav_order: 2
 has_children: true
 ---
 
-# Prebid Mobile SDK integration documentation.
+# Prebid Mobile SDK integration.
 
-This documentation explains how to integrate Prebid Mobile SDk to mobile applications written in Kotlin.
+This part explains how to integrate Prebid Mobile SDK into mobile applications written in Kotlin, display a 300x250 banner and interstitial ad, and test the integration.
