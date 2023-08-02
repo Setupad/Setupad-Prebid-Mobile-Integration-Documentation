@@ -7,11 +7,10 @@ nav_order: 4
 
 
 ## Interstitial ad
-To show an interstitial ad, there is no need to add an element to the layout file of the class or fragment where the ad will be shown. The context that is passed to this method is the class or fragment where the banner will be displayed. interstitialAdUnit is a InterstitialAdUnit object; use CONFIG_ID, and the desired banner size, e.g. 80x60.
+To show an interstitial ad, there is no need to add an element to the layout file of the class or fragment where the ad will be shown. The context that is passed to `createInterstitialAd()` method is the class or fragment where the banner will be displayed. `interstitialAdUnit` is an `InterstitialAdUnit` object; use `CONFIG_ID`. It is optional to specify the minimum height and width percent of the ad, e.g. 80x60.
 ```kotlin
-fun createAd(context: Context) {
+fun createInterstitialAd(context: Context) {
         interstitialAdUnit = InterstitialAdUnit(CONFIG_ID, WIDTH, HEIGHT)
-        interstitialAdUnit?.setAutoRefreshInterval(30)
 
         val request = AdManagerAdRequest.Builder().build()
         interstitialAdUnit?.fetchDemand(request) {
