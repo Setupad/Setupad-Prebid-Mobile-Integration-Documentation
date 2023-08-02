@@ -24,7 +24,7 @@ In the layout file, associated with the class or fragment where the banner will 
 The banner will be constrained to the bottom of the layout and centered horizontally. Ad size and ad unit ID are necessary for the banner to be shown.
 
 ## Banner 
-In the class or fragment, where the banner will be shown, add a method for banner ad. The context that is passed to this method is the class or fragment where the banner will be displayed. adUnit is a BannerAdUnit object; to initialize it, use `CONFIG_ID`, and the desired banner size, eg. 300x250. The setAutoRefreshInterval is a method for refreshing banners, where the minimum refresh time is 30 seconds. 
+In the class or fragment, where the banner will be shown, add a method for banner ad. The context that is passed to this method is the class or fragment where the banner will be displayed. adUnit is a BannerAdUnit object; to initialize it, use `CONFIG_ID`, and the desired banner size, eg. 300x250. The `setAutoRefreshInterval` is a method for refreshing banners, where the minimum refresh time is 30 seconds. 
 BannerParameters are used to customize bid requests. AdManagerAdView is created in accordance with [Google Ad Manager] documentation. Using `addView()`, the banner is attached to the banner slot in the layout file, and, using `fetchDemand()`, a bid request is made to the Prebid Server.
 ```kotlin
 fun createBannerAd(context: Context) {
