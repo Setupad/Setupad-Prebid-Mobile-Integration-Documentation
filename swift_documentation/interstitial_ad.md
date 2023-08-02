@@ -7,7 +7,7 @@ nav_order: 4
 
 
 ## Interstitial ad
-To show an interstitial ad, there is no need to add an element to the layout file of the class or fragment where the ad will be shown. interstitialAdUnit is an InterstitialAdUnit object; to initialize it, use CONFIG_ID. It is optional to specify the minimum height and width percent of the ad, e.g. 80x60. If the ad is successfully loaded, it will be shown.
+To show an interstitial ad, there is no need to add an element to the layout where the ad will be shown. `interstitialAdUnit` is an `InterstitialAdUnit` object; to initialize it, use `CONFIG_ID`. It is optional to specify the minimum height and width percent of the ad, e.g. 80x60. If the ad is successfully loaded, it will be shown.
 ```swift
 func createInterstitialAd(){
         interstitialAdUnit = InterstitialAdUnit(configId: CONFIG_ID, minWidthPerc: 60, minHeightPerc: 80)
