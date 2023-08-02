@@ -8,7 +8,7 @@ nav_order: 2
 ## build.gradle
 
 In your build.gradle (Module :app) file’s dependencies include these lines to include Prebid Mobile SDK and Google Ad Manager SDK to the project:
-```Groovy
+```groovy
 dependencies {
     //...
     // Google Ad Manager
