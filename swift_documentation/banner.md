@@ -6,8 +6,8 @@ nav_order: 3
 ---
 
 
-## Adding banner element to the layout
-Banner is added to the view using `addbannerViewToView` function, to which the banner is passed. This function should be included in the same file where the banner function is. In the provided code elow, the banner is added at the bottom of the layout and cetered horizontally.
+## Adding a banner element to the layout
+The banner is added to the view using the `addbannerViewToView()` function, to which the banner object is passed. This function should be included in the same file where the `createBanner` function is. In the provided code below, the banner is added at the bottom of the layout and centered horizontally.
 ```swift
     func addBannerViewToView(_ bannerView: GAMBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
@@ -32,8 +32,8 @@ Banner is added to the view using `addbannerViewToView` function, to which the b
 }
 ```
 ## Banner
-In the class, where the banner will be shown, add a function for banner ad. adUnit is a BannerAdUnit object. adUnit is a BannerAdUnit object; to initialize it, use CONFIG_ID, and the desired banner size, e.g. 300x250. The `setAutoRefreshMillis` is a method for refreshing banners, where the minimum refresh time is 30 seconds. 
-BannerParameters are used to customize bid requests. 
+In the class, where the banner will be shown, add a function for banner ad. `adUnit` is a `BannerAdUnit` object; to initialize it, use `CONFIG_ID`, and the desired banner size, e.g. 300x250. The `setAutoRefreshMillis` is a method for refreshing banners, where the minimum refresh time is 30 seconds. 
+`BannerParameters` are used to customize bid requests. 
 ```swift
 let adSize = CGSize(width: 300, height: 250)
 ///...
@@ -60,7 +60,7 @@ func createBanner(){
 ```
 
 ## Ad listener
-Ad listener is used to check whether the ad was successfully loaded. In addition, the findPrebidCreativeSize method is used to resize the ad if needed.
+Ad listener is used to check whether the ad was successfully loaded. In addition, the `findPrebidCreativeSize` method is used to resize the ad if needed.
 ```swift
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
         AdViewUtils.findPrebidCreativeSize(bannerView, success: { size in
