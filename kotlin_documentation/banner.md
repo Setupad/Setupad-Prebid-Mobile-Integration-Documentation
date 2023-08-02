@@ -25,7 +25,7 @@ Banner will be constrained to the bottom of the layout and centered horizontally
 
 ## Banner 
 In the class or fragment, where the banner will be shown, add a method for banner ad. The context that is passed to this method is the class or fragment where the banner will be displayed. adUnit is a BannerAdUnit object; to initialize it, use CONFIG_ID, and the desired banner size, eg. 300x250. The setAutoRefreshInterval is a method for refreshing banners, where the minimum refresh time is 30 seconds. 
-BannerParameters are used to customize bid requests. AdManagerAdView is created in accordance with [Google Ad Manager] documentation. Using addView(), the banner is attached to the banner slot in the layout file and, using fetchDemand(), a bid request is made to the Prebid Server.
+BannerParameters are used to customize bid requests. AdManagerAdView is created in accordance with [Google Ad Manager] documentation. Using addView(), the banner is attached to the banner slot in the layout file, and, using fetchDemand(), a bid request is made to the Prebid Server.
 ```kotlin
 fun createBannerAd(context: Context) {
         adUnit = BannerAdUnit(CONFIG_ID, WIDTH, HEIGHT)
@@ -53,13 +53,13 @@ fun createBannerAd(context: Context) {
 
 ## Ad listener
 
-Ad listener is used to check whether the ad was successfully loaded. In addition, the findPrebidCreativeSize method is used to resize the ad if needed.
+Ad listener is used to check whether the ad was successfully loaded. In addition, the `findPrebidCreativeSize` method is used to resize the ad if needed.
 ```kotlin
 private fun createGAMListener(adView: AdManagerAdView): AdListener {
-        return object : AdListener() {
+        return object: AdListener() {
             override fun onAdLoaded() {
                 super.onAdLoaded()
-                AdViewUtils.findPrebidCreativeSize(adView, object : AdViewUtils.PbFindSizeListener {
+                AdViewUtils.findPrebidCreativeSize(adView, object: AdViewUtils.PbFindSizeListener {
                     override fun success(width: Int, height: Int) {
                         adView.setAdSizes(AdSize(width, height))
                         Log.d(Tag, "Creative size: " + width + "x" + height)
@@ -75,7 +75,7 @@ private fun createGAMListener(adView: AdManagerAdView): AdListener {
 
 ## Destroying ad
 
-Add an onDestroy() for the banner to be destroyed with the activity.
+Add an `onDestroy()` method for the banner to be destroyed with the activity.
 ```kotlin
 override fun onDestroy() {
    super.onDestroy()
