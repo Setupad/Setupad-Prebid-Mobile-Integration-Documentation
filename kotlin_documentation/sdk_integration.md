@@ -22,19 +22,18 @@ dependencies {
 
 In the AndroidManifest.xml file include the `<meta-data>` tag inside the `<application>` tag. 
 ```xml
-<application
-        <!--...--> >
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-################~##########"/>
-        <!--...-->
-    </application>
+<application>
+    <meta-data
+        android:name="com.google.android.gms.ads.APPLICATION_ID"
+        android:value="ca-app-pub-################~##########"/>
+    <!--...-->
+</application>
 ```
 
 ## SDK initialization
 
-Prebid Mobile SDK initialization is only needed to be done once. The context passed to the method, is the class or fragment, inside which this method is called. Initialization can also be done inside the onCreate method without using a separate method as in the example provided below.
-```Kotlin
+Prebid Mobile SDK initialization is only needed to be done once. The context passed to the method is the class or fragment inside which this method is called. Initialization can also be done inside the onCreate method without using a separate method as in the example provided below.
+```kotlin
 fun prebidInit(context: Context){
         PrebidMobile.setPrebidServerAccountId(ACCOUNT_ID)
         PrebidMobile.setPrebidServerHost(
@@ -57,6 +56,4 @@ fun prebidInit(context: Context){
         PrebidMobile.setShareGeoLocation(true)
     }
 ```
-If the ShareGeoLocation flag is set to true, then Prebid Mobile will send the user's geolocation to Prebid Server.
-
-
+The `setTimeoutMillis` sets how much time bidders have to submit their bids. It is important to choose a sufficient timeout - if it is too short, there is a chance to get less bids, and if it is too long, it can slow down ad loading and user might wait too long for the ads to appear. If the `setShareGeoLocation` flag is set to true, then Prebid Mobile will send the user's geolocation to Prebid Server.
