@@ -40,7 +40,6 @@ use_frameworks!
   pod 'PrebidMobile'
   pod 'Google-Mobile-Ads-SDK'
 ```
-Optionally, you can define a global platform for your project.
 
 Using the terminal, install Prebid Mobile SDK and Google Ad Manager SDK using the command below.
 ```
@@ -49,7 +48,7 @@ pod install
 If the installation is successful, you will find the `YourProjectName.xcworkspace` file located in the same folder where the 'YourProjectName.xcodeproj' is.
 
 ## Info.plist
-Open the newly created `YourProjectName.xcworkspace` file. Then, in your project structure under your project, find the `Info.plist` file, it should be located like this: `YourProjectName -> YourProjectName -> Info`. It can be shown in the hierarchy just as `Info`.
+Open the newly created `YourProjectName.xcworkspace` file. Then, in your project structure under your project, find the `Info.plist` file, it should be located like this: `YourProjectName -> YourProjectName -> Info`. It can be shown in the hierarchy just as `Info` instead of `Info.plist`.
 Inside the Info.plist file, include the `GADApplicationIdentifier`. It is optional to include [SKAdNetworkItems] items.
 ```xml
 <key>GADApplicationIdentifier</key>
