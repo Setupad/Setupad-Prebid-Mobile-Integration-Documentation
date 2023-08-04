@@ -32,7 +32,7 @@ In the AndroidManifest.xml file include the `<meta-data>` tag inside the `<appli
 
 ## SDK initialization
 
-Prebid Mobile SDK initialization is only needed to be done once. The context passed to the method is the class or fragment inside which this method is called. Initialization can also be done inside the onCreate method without using a separate method as in the example provided below.
+Prebid Mobile SDK initialization is only needed to be done once. The context passed to the method is the class or fragment inside which this method is called. Initialization can also be done inside the `onCreate` method without using a separate method as in the example provided below.
 ```kotlin
 fun prebidInit(context: Context){
         PrebidMobile.setPrebidServerAccountId(ACCOUNT_ID)
