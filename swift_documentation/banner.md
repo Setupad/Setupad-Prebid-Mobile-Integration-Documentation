@@ -7,7 +7,7 @@ nav_order: 3
 
 
 ## Adding a banner element to the layout
-The banner is added to the view using the `addbannerViewToView()` function, to which the banner object is passed. This function should be included in the same file where the `createBanner` function is. In the provided code below, the banner is added at the bottom of the layout and centered horizontally.
+The banner is added to the view using the `addbannerViewToView` function, to which the banner object is passed. This function should be included in the same file where the `createBanner` function is. In the provided code below, the banner is added at the bottom of the layout and centered horizontally.
 ```swift
     func addBannerViewToView(_ bannerView: GAMBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
