@@ -81,7 +81,7 @@ func prebidInit(){
             print( \(error))
         }
         
-        Prebid.initializeSDK(GADMobileAds.sharedInstance()) { status, error in
+        Prebid.initializeSDK(gadMobileAdsVersion: GADGetStringFromVersionNumber(GADMobileAds.sharedInstance().versionNumber)) { status, error in
             switch status {
             case .succeeded:
                 print("Prebid SDK successfully initialized")
