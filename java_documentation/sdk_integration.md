@@ -77,4 +77,4 @@ private void prebidInitialization(Context context){
 }
 ```
 `ACCOUNT_ID` is a placeholder for Prebid account ID.
-The `setTimeoutMillis` sets how much time bidders have to submit their bids. It is important to choose a sufficient timeout - if it is too short, there is a chance to get less bids, and if it is too long, it can slow down ad loading and user might wait too long for the ads to appear. If the `setShareGeoLocation` flag is set to true, then Prebid Mobile will send the user's geolocation to Prebid Server.
+The `setTimeoutMillis` sets how much time bidders have to submit their bids. It is important to choose a sufficient timeout - if it is too short, there is a chance to get less bids, and if it is too long, it can slow down ad loading and user might wait too long for the ads to appear. If the `setShareGeoLocation` flag is set to true, then Prebid Mobile will send the user's geolocation to Prebid Server. Setting `setPbsDebug()` to `true` adds a debug flag ("test": 1) into Prebid auction request, which allows to display only test ads and see full Prebid auction response. If none of this required, you can set `pbsDebug()` to false.
