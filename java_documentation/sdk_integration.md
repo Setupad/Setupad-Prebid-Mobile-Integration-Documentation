@@ -1,5 +1,5 @@
 ---
-title: Banner
+title: SDK integration
 layout: home
 parent: Java
 nav_order: 2
