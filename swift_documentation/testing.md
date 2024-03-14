@@ -13,7 +13,7 @@ In order to test whether Prebid Mobile SDK and ads were successfully integrated 
 If the testing is done using a simulator, on top of the ad will be visible a ‘Test mode’ writing, as can be seen in the provided example. If the testing is done on a physical device, this writing will not be visible.
 
 Testing parameters for iOS:
-* ACCOUNT_ID: TBA
-* AD_UNIT_ID: TBA
-* CONFIG_ID for 300x250 banner: TBA
-* CONFIG_ID for interstitial ad: TBA
+* ACCOUNT_ID: `apptest`
+* AD_UNIT_ID: `/147246189/app_test`
+* CONFIG_ID for 300x250 banner: 6139
+* CONFIG_ID for interstitial ad: 6141
