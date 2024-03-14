@@ -24,7 +24,7 @@ In the layout file, associated with the activity where the banner will be shown,
 `AD_UNIT_ID` is a placeholder for ad unit ID. The banner will be constrained to the bottom of the layout and centered horizontally. Ad size and ad unit ID are necessary for the banner to be shown.
 
 ## Banner 
-In the class, associated with the activity where the banner will be shown, add a method for banner ad. 
+In the class, associated with the activity where the banner will be shown, add a method for banner ad. Banner parameters are used to customize the bid request. The values that can be choosen from are `Signals.Api.MRAID_1`, `Signals.Api.MRAID_2`, `Signals.Api.MRAID_3` and `Signals.Api.OMID_1`.
 ```java
 public void createBannerAd(Context context) {
     bannerAdUnit = new BannerAdUnit(CONFIG_ID, WIDTH, HEIGHT);
