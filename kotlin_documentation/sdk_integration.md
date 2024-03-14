@@ -12,9 +12,9 @@ In your `build.gradle (Module :app)` file’s dependencies include these lines t
 dependencies {
     //...
     // Google Ad Manager
-    implementation 'com.google.android.gms:play-services-ads:22.4.0'
+    implementation 'com.google.android.gms:play-services-ads:23.0.0'
     // Prebid SDK
-    implementation 'org.prebid:prebid-mobile-sdk:2.1.4'
+    implementation 'org.prebid:prebid-mobile-sdk:2.2.0'
 }
 ```
 
