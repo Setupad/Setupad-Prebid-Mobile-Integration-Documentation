@@ -36,9 +36,8 @@ end
 
 Inside the target `YourProjectName` and after the `use_frameworks!` line include these two lines, save the file and then close it.
 ```ruby
-use_frameworks!
-  pod 'PrebidMobile'
-  pod 'Google-Mobile-Ads-SDK'
+pod 'PrebidMobile'
+pod 'Google-Mobile-Ads-SDK'
 ```
 
 Using the terminal, install Prebid Mobile SDK and Google Ad Manager SDK using the command below.
@@ -48,7 +47,7 @@ pod install
 If the installation is successful, you will find the `YourProjectName.xcworkspace` file located in the same folder where the 'YourProjectName.xcodeproj' is.
 
 ## Info.plist
-Open the newly created `YourProjectName.xcworkspace` file. Then, in your project structure under your project, find the `Info.plist` file, it should be located like this: `YourProjectName -> YourProjectName -> Info`. It can be shown in the hierarchy just as `Info` instead of `Info.plist`.
+Open the newly created `YourProjectName.xcworkspace` file. Then, in your project structure under your project, find the `Info.plist` file, it should be located in Project navigator in XCode like this: `YourProjectName -> YourProjectName -> Info`. It can be shown in the navigator just as `Info` instead of `Info.plist`.
 Inside the Info.plist file, include the `GADApplicationIdentifier`. It is optional to include [SKAdNetworkItems] items.
 ```xml
 <key>GADApplicationIdentifier</key>
@@ -62,27 +61,25 @@ import PrebidMobile
 import GoogleMobileAds
 ```
 
-Make sure that your class adheres to the `GADBannerViewDelegate` protocol, e.g.
+Make sure that your class adheres to the `GADBannerViewDelegate` protocol.
 ```swift
-class ViewController: UIViewController, GADBannerViewDelegate {
+class MyClass: GADBannerViewDelegate {
 ```
 
 Prebid Mobile SDK initialization is only needed to be done once. It can either be done inside a class method or a separate function.
 ```swift
-func prebidInit(){
-        Prebid.shared.prebidServerAccountId = ACCOUNT_ID;
-        Prebid.shared.pbsDebug = true
-        Prebid.shared.shareGeoLocation = true
-        PrebidMobile.setTimeoutMillis(3000)
-
-        do {
-            try Prebid.shared.setCustomPrebidServer(url:"https://prebid.setupad.io/openrtb2/auction")
-        } catch {
-            print( \(error))
-        }
-        
-        Prebid.initializeSDK(gadMobileAdsVersion: GADGetStringFromVersionNumber(GADMobileAds.sharedInstance().versionNumber)) { status, error in
-            switch status {
+func prebidInitialization(){
+    Prebid.shared.prebidServerAccountId = ACCOUNT_ID
+    Prebid.shared.pbsDebug = false
+            
+    do {
+        try Prebid.shared.setCustomPrebidServer(url:"https://prebid.setupad.io/openrtb2/auction")
+    } catch {
+        print( \(error))
+    }
+            
+    Prebid.initializeSDK(gadMobileAdsVersion: GADGetStringFromVersionNumber(GADMobileAds.sharedInstance().versionNumber)) { status, error in
+        switch status {
             case .succeeded:
                 print("Prebid SDK successfully initialized")
             case .failed:
@@ -95,11 +92,14 @@ func prebidInit(){
                 }
             default:
                 break
-            }
         }
     }
+    Prebid.shared.shareGeoLocation = true
+    PrebidMobile.setTimeoutMillis(3000)
+}
 ```
-The `setTimeoutMillis` sets how much time bidders have to submit their bids. It is important to choose a sufficient timeout - if it is too short, there is a chance to get less bids, and if it is too long, it can slow down ad loading and user might wait too long for the ads to appear. If the `setShareGeoLocation` flag is set to true, then Prebid Mobile will send the user’s geolocation to Prebid Server.
+`ACCOUNT_ID` is a placeholder for Prebid account ID.
+The `setTimeoutMillis` sets how much time bidders have to submit their bids. It is important to choose a sufficient timeout - if it is too short, there is a chance to get less bids, and if it is too long, it can slow down ad loading and user might wait too long for the ads to appear. If the `setShareGeoLocation` flag is set to true, then Prebid Mobile will send the user’s geolocation to Prebid Server. Setting `setPbsDebug()` to `true` adds a debug flag ("test": 1) into Prebid auction request, which allows to display only test ads and see full Prebid auction response. If none of this required, you can set `pbsDebug()` to false.
 
 [CocoaPods]: https://cocoapods.org/
 [SKAdNetworkItems]: https://developers.google.com/ad-manager/mobile-ads-sdk/ios/quick-start#expandable-1  
