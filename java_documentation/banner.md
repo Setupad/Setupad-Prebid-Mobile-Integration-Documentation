@@ -32,7 +32,7 @@ public void createBannerAd(Context context) {
     parameters.setApi(Arrays.asList(Signals.Api.OMID_1));
     bannerAdUnit.setBannerParameters(parameters);
     
-    bannerAdUnit.setAutoRefreshInterval(getRefreshTimeSeconds());
+    bannerAdUnit.setAutoRefreshInterval(30);
     
     final AdManagerAdView gamView = new AdManagerAdView(context);
     gamView.setAdUnitId(AD_UNIT_ID);
@@ -49,12 +49,8 @@ public void createBannerAd(Context context) {
         gamView.loadAd(request);
     });
 }
-
-private int getRefreshTimeSeconds() {
-    return 30;
-}
 ```
-The context that is passed to this method is the class where the banner will be displayed. `bannerAdUnit` is a `BannerAdUnit` object; to initialize it, use `CONFIG_ID`, and the desired banner size, eg. 300x250. The `setAutoRefreshInterval` is a method for refreshing banners, where the minimum refresh time is 30 seconds. You can either use a method to set refresh time (like the provided `getRefreshTimeSeconds()`), or simply write the desired refresh time. 
+The context that is passed to this method is the class where the banner will be displayed. `bannerAdUnit` is a `BannerAdUnit` object; to initialize it, use `CONFIG_ID`, and the desired banner size, eg. 300x250. The `setAutoRefreshInterval` is a method for refreshing banners, where the minimum refresh time is 30 seconds.  
 `BannerParameters` are used to customize bid requests. `AdManagerAdView` is created per [Google Ad Manager] documentation. Using `addView`, the banner is attached to the banner slot in the layout file, and, using `fetchDemand`, a bid request is made to the Prebid Server.
 
 ## Ad listener
