@@ -8,7 +8,7 @@ nav_order: 3
 
 ## Adding a banner element to the layout
 
-In the layout file, associated with the class or fragment where the banner will be shown, ad this `AdManagerAdView`. 
+In the layout file, associated with the class where the banner will be shown, ad this `AdManagerAdView` element. 
 ```xml
 <com.google.android.gms.ads.admanager.AdManagerAdView
     android:id="@+id/adManagerAdView"
@@ -21,15 +21,13 @@ In the layout file, associated with the class or fragment where the banner will 
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"/>
 ```
-The banner will be constrained to the bottom of the layout and centered horizontally. Ad size and ad unit ID are necessary for the banner to be shown.
+`AD_UNIT_ID` is a placeholder for ad unit ID. The banner will be constrained to the bottom of the layout and centered horizontally. Ad size and ad unit ID are necessary for the banner to be shown.
 
 ## Banner 
-In the class or fragment, where the banner will be shown, add a method for banner ad. Banner parameters are used to customize the bid request. The values that can be choosen from are `Signals.Api.MRAID_1`, `Signals.Api.MRAID_2`, `Signals.Api.MRAID_3` and `Signals.Api.OMID_1`.
+In the class, where the banner will be shown, add a method for banner ad. Banner parameters are used to customize the bid request. The values that can be choosen from are `Signals.Api.MRAID_1`, `Signals.Api.MRAID_2`, `Signals.Api.MRAID_3` and `Signals.Api.OMID_1`.
 ```kotlin
 private var bannerAdUnit: BannerAdUnit ? = null
-
 //...
-
 private fun createBannerAd(context: Context){
     bannerAdUnit = BannerAdUnit(CONFIG_ID, WIDTH, HEIGHT)
     val parameters = BannerParameters()
@@ -58,22 +56,22 @@ private fun getRefreshTimeSeconds(): Int {
 }
 ```
 The context that is passed to this method is the class or fragment where the banner will be displayed. `adUnit` is a `BannerAdUnit` object; to initialize it, use `CONFIG_ID`, and the desired banner size, eg. 300x250. The `setAutoRefreshInterval` is a method for refreshing banners, where the minimum refresh time is 30 seconds. 
-`BannerParameters` are used to customize bid requests. `AdManagerAdView` is created in accordance with [Google Ad Manager] documentation. Using `addView`, the banner is attached to the banner slot in the layout file, and, using `fetchDemand`, a bid request is made to the Prebid Server.
+`AdManagerAdView` is created in accordance with [Google Ad Manager] documentation. Using `addView`, the banner is attached to the banner slot in the layout file, and, using `fetchDemand`, a bid request is made to the Prebid Server.
 
 ## Ad listener
 
-Ad listener is used to check whether the ad was successfully loaded. In addition, the `findPrebidCreativeSize` method is used to resize the ad if needed.
+Ad listener is used to check whether the ad was successfully loaded. In addition, the `findPrebidCreativeSize()` method is used to resize the ad if needed.
 ```kotlin
 private fun bannerListener(gamView: AdManagerAdView): AdListener {
-    return object : AdListener() {
+    return object: AdListener() {
         override fun onAdLoaded() {
             super.onAdLoaded()
             Log.d(Tag, "Banner ad loaded successfully")
-            AdViewUtils.findPrebidCreativeSize(gamView, object : AdViewUtils.PbFindSizeListener {
+            AdViewUtils.findPrebidCreativeSize(gamView, object: AdViewUtils.PbFindSizeListener {
                 override fun success(width: Int, height: Int) {
                     gamView.setAdSizes(AdSize(width, height))
                     Log.d(Tag, "Creative size: " + width + "x" + height)
-            }
+                }
             
                 override fun failure(error: PbFindSizeError) {
                     Log.e(Tag, "Failed to find creative size: " + error.description)
@@ -103,7 +101,6 @@ override fun onPause() {
     bannerAdUnit?.stopAutoRefresh()
 }
 
-
 override fun onResume() {
     super.onResume()
     Log.d(Tag, "Resuming auction")
@@ -117,7 +114,7 @@ Add an `onDestroy()` method for the banner to be destroyed with the activity.
 ```kotlin
 override fun onDestroy() {
     super.onDestroy()
-    Log.d(Tag, "Pausing auction")
+    Log.d(Tag, "Destroying auction")
     bannerAdUnit?.stopAutoRefresh()
     bannerAdUnit?.destroy()
 }
