@@ -52,9 +52,9 @@ Location permission, which passes `Lat/Lon` values when they are available, is o
 
 ## SDK initialization
 
-Prebid Mobile SDK initialization is only needed to be done once. The context passed to the method is the class or fragment inside which this method is called. Initialization can also be done inside the `onCreate` method without using a separate method as in the example provided below.
+Prebid Mobile SDK initialization is only needed to be done once. The context passed to the method is the class inside which this method is called. Initialization can be done inside the `onCreate` method by either calling the method that contains the initialization code or without using a separate method. In addition, Prebid can be initialized inside class that extends to `Application` class.
 ```kotlin
-fun prebidInit(context: Context){
+private fun prebidInit(context: Context){
     PrebidMobile.setPrebidServerAccountId(ACCOUNT_ID)
     PrebidMobile.setPbsDebug(false)
     PrebidMobile.setPrebidServerHost(
@@ -77,4 +77,4 @@ fun prebidInit(context: Context){
     PrebidMobile.setShareGeoLocation(true)
 }
 ```
-The `setTimeoutMillis` sets how much time bidders have to submit their bids. It is important to choose a sufficient timeout - if it is too short, there is a chance to get less bids, and if it is too long, it can slow down ad loading and user might wait too long for the ads to appear. If the `setShareGeoLocation` flag is set to true, then Prebid Mobile will send the user's geolocation to Prebid Server. Setting `setPbsDebug()` to `true` adds a debug flag ("test": 1) into Prebid auction request, which allows to display only test ads and see full Prebid auction response. If none of this required, you can set `pbsDebug()` to false.
+``ACCOUNT_ID` is a placeholder for Prebid account ID. The `setTimeoutMillis` sets how much time bidders have to submit their bids. It is important to choose a sufficient timeout - if it is too short, there is a chance to get less bids, and if it is too long, it can slow down ad loading and user might wait too long for the ads to appear. If the `setShareGeoLocation` flag is set to true, then Prebid Mobile will send the user's geolocation to Prebid Server. Setting `setPbsDebug()` to `true` adds a debug flag ("test": 1) into Prebid auction request, which allows to display only test ads and see full Prebid auction response. If none of this required, you can set `pbsDebug()` to false.
