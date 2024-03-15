@@ -7,7 +7,7 @@ nav_order: 4
 
 
 ## Interstitial ad
-To show an interstitial ad, there is no need to add an element to the layout file of the class or fragment where the ad will be shown. 
+To show an interstitial ad, there is no need to add an element to the layout file of the class where the ad will be shown. The context that is passed to `createInterstitialAd` method is the class where the interstitial ad will be displayed. `interstitialAdUnit` is an `InterstitialAdUnit` object; use `CONFIG_ID`. It is optional to specify the minimum height and width in percent of the ad, e.g. 80x60 means that the minimum width of the interstitial ad will be at least 80% of the screen and at least 60% of the height.
 ```java
 private void createInterstitialAd() {
     interstitialAdUnit = new InterstitialAdUnit(CONFIG_ID, WIDTH, HEIGHT);
@@ -19,8 +19,6 @@ private void createInterstitialAd() {
     });
 }
 ```
-The context that is passed to `createInterstitialAd` method is the class where the banner will be displayed. `interstitialAdUnit` is an `InterstitialAdUnit` object; to initialize it use `CONFIG_ID`. 
-It is optional to specify the minimum height and width in percent of the ad, e.g. 80x60 means that the minimum width of the interstitial ad will be at least 80% of the screen and at least 60% of the height.
 
 ## Ad listener
 
@@ -31,7 +29,7 @@ private AdManagerInterstitialAdLoadCallback interstitialListener() {
         @Override
         public void onAdLoaded(@NonNull AdManagerInterstitialAd interstitialManager) {
             Log.d(Tag, "Interstitial ad loaded successfully");
-            interstitialManager.show(MainActivity.this);
+            interstitialManager.show(MyClass.this);
         }
         
         @Override
