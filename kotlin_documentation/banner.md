@@ -34,7 +34,7 @@ private fun createBannerAd(context: Context){
     parameters.api = listOf(Signals.Api.MRAID_3, Signals.Api.OMID_1)
     bannerAdUnit?.bannerParameters = parameters
     
-    bannerAdUnit?.setAutoRefreshInterval(getRefreshTimeSeconds())
+    bannerAdUnit?.setAutoRefreshInterval(30)
     
     val gamView = AdManagerAdView(context)
     gamView.adUnitId = AD_UNIT_ID
@@ -49,10 +49,6 @@ private fun createBannerAd(context: Context){
     bannerAdUnit?.fetchDemand(request) {
         gamView.loadAd(request)
     }
-}
-
-private fun getRefreshTimeSeconds(): Int {
-    return 30
 }
 ```
 The context that is passed to this method is the class or fragment where the banner will be displayed. `adUnit` is a `BannerAdUnit` object; to initialize it, use `CONFIG_ID`, and the desired banner size, eg. 300x250. The `setAutoRefreshInterval` is a method for refreshing banners, where the minimum refresh time is 30 seconds. 
