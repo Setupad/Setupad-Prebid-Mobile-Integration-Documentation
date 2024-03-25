@@ -95,7 +95,7 @@ func prebidInitialization(){
         }
     }
     Prebid.shared.shareGeoLocation = true
-    PrebidMobile.setTimeoutMillis(3000)
+    Prebid.setTimeoutMillis(3000)
 }
 ```
 `ACCOUNT_ID` is a placeholder for Prebid account ID.
