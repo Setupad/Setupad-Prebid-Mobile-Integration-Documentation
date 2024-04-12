@@ -1,7 +1,7 @@
 ---
 title: Ads
 layout: home
-parent: Swift
+parent: Flutter
 nav_order: 3
 ---
 The first step is to import ads library.
