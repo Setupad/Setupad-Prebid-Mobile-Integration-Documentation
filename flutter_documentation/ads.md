@@ -38,6 +38,30 @@ const PrebidAd(
 ```
 `AD_UNIT_ID` and `CONFIG_ID` are placeholders. The refresh interval is set to zero because interstitial ads do not refresh. Unlike in the banner ads, in the interstitial ads the width and height variables are used to indicate the minimum screen's width and height in percent that the interstitial ad can take. In this case 80x60 means that the minimum width of the interstitial ad will be at least 80% of the screen and at least 60% of the height. As these size parameters are optional, you can opt out of specifying them by writing zero as their value. 
 
+If you want to display interstitial ad on button press, it is necessary to use `setState()` with a boolean variable.
+```dart
+bool _showInterstitial = false;
+//...
+ElevatedButton(
+  child: const Text('Press me!'),
+  onPressed: () {
+    setState(() {
+      _showInterstitial = true;
+    });
+  },
+),
+if (_showInterstitial)
+  const PrebidAd(
+    adType: 'interstitial',
+    configId: '6145',
+    adUnitId: '/147246189/app_test',
+    width: 80,
+    height: 60,
+    refreshInterval: 0,
+),
+//...
+```
+
 ## Pausing and resuming auction and destroying banner ad
 It is necessary to stop the auction when leaving UI where the banner ad is displayed because if not stopped, the auction continues happening, and displaying ads that are not seen by anyone which produces incorrect viewability results. After coming back to the UI where the auction was stopped, it can be resumed using `PrebidAuction().resume()`. If there is a need, banner object can be destroyed using `PrebidAuction().destroy()` method.
 
