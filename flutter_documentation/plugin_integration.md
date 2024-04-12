@@ -1,5 +1,5 @@
 ---
-title: SDK integration
+title: Plugin integration
 layout: home
 parent: Flutter
 nav_order: 2
