@@ -5,7 +5,7 @@ parent: Flutter
 nav_order: 4
 ---
 
-Starting iOS 14+, it is necessary to ask user for permission to track their data, which is necessary for better ads targeting. In case user refuses to be tracked, IDFA is set to zeroes. More about App Tracking Transparency can be read [here]. </br>
+Starting iOS 14+, it is necessary to ask user for permission to track their data, which is necessary for better ads targeting. In case user refuses to be tracked, IDFA is set to zeroes. More about App Tracking Transparency can be read [here].
 One of the ways to ask for user's permission is to use App Tracking Transparency [plugin], made specifically for this purpose.
 
 ## Info.plist
