@@ -15,5 +15,5 @@ If the testing is done using a simulator, on top of the ad will be visible a ‘
 Testing parameters for iOS:
 * ACCOUNT_ID: `apptest`
 * AD_UNIT_ID: `/147246189/app_test`
-* CONFIG_ID for 300x250 banner: 6139
-* CONFIG_ID for interstitial ad: 6141
+* CONFIG_ID for 300x250 banner: `6139`
+* CONFIG_ID for interstitial ad: `6141`
