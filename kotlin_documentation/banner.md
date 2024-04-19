@@ -31,7 +31,7 @@ private var bannerAdUnit: BannerAdUnit ? = null
 private fun createBannerAd(context: Context){
     bannerAdUnit = BannerAdUnit(CONFIG_ID, WIDTH, HEIGHT)
     val parameters = BannerParameters()
-    parameters.api = listOf(Signals.Api.MRAID_3, Signals.Api.OMID_1)
+    parameters.api = listOf(Signals.Api.OMID_1, Signals.Api.MRAID_3)
     bannerAdUnit?.bannerParameters = parameters
     
     bannerAdUnit?.setAutoRefreshInterval(30)
@@ -51,7 +51,7 @@ private fun createBannerAd(context: Context){
     }
 }
 ```
-The context that is passed to this method is the class or fragment where the banner will be displayed. `adUnit` is a `BannerAdUnit` object; to initialize it, use `CONFIG_ID`, and the desired banner size, eg. 300x250. The `setAutoRefreshInterval` is a method for refreshing banners, where the minimum refresh time is 30 seconds. 
+The context that is passed to this method is the class or fragment where the banner will be displayed. `adUnit` is a `BannerAdUnit` object; to initialize it, use `CONFIG_ID`, and the desired banner size, eg. 300x250. The `setAutoRefreshInterval` is a method for refreshing banners, where the minimum refresh time is 30 seconds, and the maximum is 120 seconds. 
 `AdManagerAdView` is created in accordance with [Google Ad Manager] documentation. Using `addView`, the banner is attached to the banner slot in the layout file, and, using `fetchDemand`, a bid request is made to the Prebid Server.
 
 ## Ad listener
