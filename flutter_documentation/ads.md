@@ -22,7 +22,7 @@ const PrebidAd(
   refreshInterval: 30,
 ),
 ```
-`AD_UNIT_ID` and `CONFIG_ID` are placeholders for the ad unit ID and config ID parameters. The minimum refresh interval is 30 seconds.
+`AD_UNIT_ID` and `CONFIG_ID` are placeholders for the ad unit ID and config ID parameters. The minimum refresh interval is 30 seconds, and the maximum is 120 seconds.
 
 ## Interstitial ad
 Add this object to display an interstitial ad.
