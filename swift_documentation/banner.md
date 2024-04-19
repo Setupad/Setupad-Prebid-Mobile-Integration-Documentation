@@ -16,7 +16,7 @@ func createBanner(){
     bannerAdUnit.setAutoRefreshMillis(time: 30000)
     
     let parameters = BannerParameters()
-    parameters.api = [Signals.Api.MRAID_2]
+    parameters.api = [Signals.Api.OMID_1, Signals.Api.MRAID_3]
     bannerAdUnit.bannerParameters = parameters
     
     gamBanner = GAMBannerView(adSize: GADAdSizeFromCGSize(adSize))
@@ -32,7 +32,7 @@ func createBanner(){
     }
 }
 ```
-`bannerAdUnit` is a `BannerAdUnit` object; to initialize it, use `CONFIG_ID`, and the desired banner size, e.g. 300x250. The `setAutoRefreshMillis` is a method for refreshing banners, where the minimum refresh time is 30 seconds.
+`bannerAdUnit` is a `BannerAdUnit` object; to initialize it, use `CONFIG_ID`, and the desired banner size, e.g. 300x250. The `setAutoRefreshMillis` is a method for refreshing banners, where the minimum refresh time is 30 seconds, and the maximum is 120 seconds.
 `BannerParameters` are used to customize bid requests. Using `addBannerViewToView()` function, the banner is attached to the layout, and, using `fetchDemand`, a bid request is made to the Prebid Server.
 
 ## Adding a banner element to the layout
