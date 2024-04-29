@@ -28,9 +28,10 @@ In the AndroidManifest.xml file add the provided `<uses-permission>` permission 
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
-Location permission, which passes `Lat/Lon` values when they are available, is optional, hence if it is implemented, choose either `ACCESS_COARSE_LOCATION` or `ACCESS_FINE_LOCATION` permission.
-
-<br/>Include the `<meta-data>` tag inside the `<application>` tag with your app ID, provided by Google Ad Manager.
+For better ad targeting and ad revenue, it is recommended to pass user’s geolocation to the Prebid Server. The first step in doing so is to add location permissions to your `AndroidManifest.xml` file. The `ACCESS_COARSE_LOCATION` is non-optional, whereas `ACCESS_FINE_LOCATION` is. If you add the latter, the user will be able to choose which type of location he gives permission to collect (the option to not share the user's location is also present in the request popup). 
+\
+\
+Include the `<meta-data>` tag inside the `<application>` tag with your app ID, provided by Google Ad Manager.
 ```xml
 <application>
     <meta-data
@@ -39,8 +40,9 @@ Location permission, which passes `Lat/Lon` values when they are available, is o
     <!--...-->
 </application>
 ```
-
-<br/>Lastly, add a custom activity, which is necessary only for banner and interstitial ads
+\
+\
+Lastly, add a custom activity, which is necessary only for banner and interstitial ads.
 ```xml
 <activity
     android:name="org.prebid.mobile.rendering.views.browser.AdBrowserActivity"
@@ -76,4 +78,10 @@ private void prebidInitialization(Context context){
 }
 ```
 `ACCOUNT_ID` is a placeholder for Prebid account ID.
-The `setTimeoutMillis` sets how much time bidders have to submit their bids. It is important to choose a sufficient timeout - if it is too short, there is a chance to get less bids, and if it is too long, it can slow down ad loading and user might wait too long for the ads to appear. If the `setShareGeoLocation` flag is set to true, then Prebid Mobile will send the user's geolocation to Prebid Server. Setting `setPbsDebug()` to `true` adds a debug flag ("test": 1) into Prebid auction request, which allows to display only test ads and see full Prebid auction response. If none of this required, you can set `pbsDebug()` to false.
+The `setTimeoutMillis` sets how much time bidders have to submit their bids. It is important to choose a sufficient timeout - if it is too short, there is a chance to get less bids, and if it is too long, it can slow down ad loading and user might wait too long for the ads to appear. 
+\
+\
+The second step of sharing the user's location is setting the `setShareGeoLocation` flag to true and the final step is asking the user's permission to collect his location data. After doing these 3 steps (permissions in the manifest file, setting location flag to true and asking user for permission) Prebid Mobile SDK will send the user's device location to the Prebid Server.
+\
+\
+Setting `setPbsDebug()` to `true` adds a debug flag ("test": 1) into Prebid auction request, which allows to display only test ads and see full Prebid auction response. If none of this required, you can set `pbsDebug()` to false.
