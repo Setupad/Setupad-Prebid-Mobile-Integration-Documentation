@@ -40,8 +40,6 @@ Include the `<meta-data>` tag inside the `<application>` tag with your app ID, p
     <!--...-->
 </application>
 ```
-\
-\
 Lastly, add a custom activity, which is necessary only for banner and interstitial ads.
 ```xml
 <activity
