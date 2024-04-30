@@ -54,13 +54,15 @@ Inside the Info.plist file, include the `GADApplicationIdentifier`. It is option
 <string>ca-app-pub-################~##########</string>
 ```
 
-</br>For better ad targeting and ad revenue, it is recommended to pass user’s geolocation to the Prebid Server. The first step in doing so is to add location permission to your `Info.plist` file. `NSLocationWhenInUseUsageDescription` let’s user choose from a coarse and fine location (the option to not share the user's location is also present in the request popup). In addition, you need to provide the description for what purposes you need to access the user's location data.
+\
+For better ad targeting and ad revenue, it is recommended to pass user’s geolocation to the Prebid Server. The first step in doing so is to add location permission to your `Info.plist` file. `NSLocationWhenInUseUsageDescription` let’s user choose from a coarse and fine location (the option to not share the user's location is also present in the request popup). In addition, you need to provide the description for what purposes you need to access the user's location data.
 ```xml
 <key>NSLocationWhenInUseUsageDescription</key>
 <string>The text you want to display in the popup asking for user’s permission to collect their location data</string>
 ```
 
-</br>In addition, when using the Prebid Mobile SDK, your app collects user IDFA (The Identifier for Advertisers). As per [Apple policy], starting iOS 14.5, if your app is collecting IDFA, you need to use App Tracking Transparency framework which requests user’s permission to access their IDFA. To do so, include `NSUserTrackingUsageDescription` key to your Info.plist file and add Swift code that is responsible for requesting user’s permission and handling it. 
+\
+In addition, when using the Prebid Mobile SDK, your app collects user IDFA (The Identifier for Advertisers). As per [Apple policy], starting iOS 14.5, if your app is collecting IDFA, you need to use App Tracking Transparency framework which requests user’s permission to access their IDFA. To do so, include `NSUserTrackingUsageDescription` key to your Info.plist file and add Swift code that is responsible for requesting user’s permission and handling it. 
 ```xml
 <key>NSUserTrackingUsageDescription</key>
 <string>The text you want to display in the popup asking for user's permission to collect their IDFA</string>
