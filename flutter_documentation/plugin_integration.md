@@ -40,9 +40,10 @@ To initialize it, first include this import in your Dart file:
 import 'package:setupad_prebid_flutter/prebid_mobile.dart';
 ```
 
-Then, add `initializeSDK()`method. `ACCOUNT_ID` is a placeholder for your Prebid account ID, `TIMEOUT` is a parameter that sets how much time bidders have to submit their bids. It is important to choose a sufficient timeout - if it is too short, there is a chance to get less bids, and if it is too long, it can slow down ad loading and user might wait too long for the ads to appear.
-\
-`PBSDEBUG` is a boolean type parameter, if it is set to `true`, it adds a debug flag (“test”: 1) into Prebid auction request, which allows to display only test ads and see full Prebid auction response. If none of this required, you can set it to false.
+Then, add `initializeSDK()`method. 
 ```dart
 const PrebidMobile().initializeSDK(ACCOUNT_ID, TIMEOUT, PBSDEBUG)
 ```
+`ACCOUNT_ID` is a placeholder for your Prebid account ID, `TIMEOUT` is a parameter that sets how much time bidders have to submit their bids. It is important to choose a sufficient timeout - if it is too short, there is a chance to get less bids, and if it is too long, it can slow down ad loading and user might wait too long for the ads to appear.
+\
+`PBSDEBUG` is a boolean type parameter, if it is set to `true`, it adds a debug flag (“test”: 1) into Prebid auction request, which allows to display only test ads and see full Prebid auction response. If none of this required, you can set it to false.
