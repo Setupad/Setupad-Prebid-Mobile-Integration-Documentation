@@ -35,12 +35,14 @@ For iOS, to include yout Google Ad Manager ID into the project, you need to loca
 
 ## SDK initialization
 After including app ID into your project, next step is initializing the plugin. Prebid Mobile initialization is only needed to be done once and it is recommended to initialize it as early as possible in your project.
-To initialize it, first include this import in your dart file:
+To initialize it, first include this import in your Dart file:
 ```dart
 import 'package:setupad_prebid_flutter/prebid_mobile.dart';
 ```
 
-Then, add this line, where`ACCOUNT_ID` is a placeholder for your Prebid account ID.
+Then, add `initializeSDK()`method. `ACCOUNT_ID` is a placeholder for your Prebid account ID, `TIMEOUT` is a parameter that sets how much time bidders have to submit their bids. It is important to choose a sufficient timeout - if it is too short, there is a chance to get less bids, and if it is too long, it can slow down ad loading and user might wait too long for the ads to appear.
+\
+`PBSDEBUG` is a boolean type parameter, if it is set to `true`, it adds a debug flag (“test”: 1) into Prebid auction request, which allows to display only test ads and see full Prebid auction response. If none of this required, you can set it to false.
 ```dart
-const PrebidMobile().initializeSDK(ACCOUNT_ID)
+const PrebidMobile().initializeSDK(ACCOUNT_ID, TIMEOUT, PBSDEBUG)
 ```
