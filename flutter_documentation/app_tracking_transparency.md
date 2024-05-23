@@ -6,7 +6,7 @@ nav_order: 4
 ---
 
 Starting iOS 14+, it is necessary to ask user for permission to track their data, which is necessary for better ads targeting. In case user refuses to be tracked, IDFA is set to zeroes. More about App Tracking Transparency can be read [here].
-One of the ways to ask for user's permission is to use App Tracking Transparency [plugin], made specifically for this purpose.
+One of the ways to ask for user's permission is to use App Tracking Transparency [plugin], made specifically for this purpose. 
 
 ## Info.plist
 The first step is adding these lines to your Info.plist file (the same one where Google Ad Manager app ID was added) to display a tracking authorization request when user downloads your app and opens it for the first time. Inside the `<string>` tags add the text you want to display in the request.
@@ -22,7 +22,9 @@ app_tracking_transparency: ^2.0.4
 ```
 ## Plugin's implementation
 
-In your dart code, add this code in order for a request popup to be visible. Note: for the request popup to appear, it is necessary to display additional dialog using 'showCustomTrackingDialog' method. More about this can be read in [plugin]'s description.
+This is an example code on how this plugin can be integrated into your app. By adding it, a request popup will be visible to the user. 
+
+Note: for the request popup to appear, it is necessary to display additional dialog using `showCustomTrackingDialog` method. More about this can be read in [plugin]'s description.
 ```dart
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 
