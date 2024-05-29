@@ -8,7 +8,7 @@ nav_order: 2
 ## Prerequisites
 * Flutter version at least `2.10.5`
 ### Android 
-* `minSdkVersion` at least `20`
+* `minSdkVersion` at least `24`
 * `compileSdkVersion` at least `33`
 
 Note: if you are getting errors about using wrong `minSdkVersion` or `compileVersion` even though you have set them to the ones above (or higher), you need to find `build.gradle` files that has `flutter.minSdkVersion` and `flutter.compileSdkVersion` and  manually change those values.
