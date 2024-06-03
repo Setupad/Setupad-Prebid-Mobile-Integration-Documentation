@@ -19,8 +19,8 @@ Note: if you are getting errors about using wrong `minSdkVersion` or `compileVer
 ## pubspec.yaml
 In your `pubspec.yaml` file’s dependencies add these lines to include Setupad's Prebid plugin for Flutter and run 'flutter pub get' command in terminal.
 ```yaml
-setupad_prebid_flutter:
-  git: https://gitlab.com/setupad/prebid_flutter_plugin.git
+dependencies:
+  setupad_prebid_flutter: 0.0.1
 ```
 In case the command fails, make sure you are logged into your Gitlab account using terminal.
 
@@ -58,3 +58,7 @@ const PrebidMobile().initializeSDK(ACCOUNT_ID, TIMEOUT, PBSDEBUG)
 `ACCOUNT_ID` is a placeholder for your Prebid account ID, `TIMEOUT` is a parameter that sets how much time bidders have to submit their bids. It is important to choose a sufficient timeout - if it is too short, there is a chance to get less bids, and if it is too long, it can slow down ad loading and user might wait too long for the ads to appear.
 \
 `PBSDEBUG` is a boolean type parameter, if it is set to `true`, it adds a debug flag (“test”: 1) into Prebid auction request, which allows to display only test ads and see full Prebid auction response. If none of this required, you can set it to false.
+
+### Geolocation
+
+This plugin already contains all the needed parameters to share user’s location data - location permissions in both Android and iOS, as well as Prebid Mobile SDK’s geolocation flag, which is set to `true`. In order to start collecting this data, you need to add a location permission request to your Flutter app, so that when the user opens your app for the first time, a popup will appear where the user will be able to choose which type of location (precise or approximate) he gives permission to collect (the option to not share the user’s location is also present in the request popup).
