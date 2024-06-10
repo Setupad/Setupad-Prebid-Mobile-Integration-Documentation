@@ -68,7 +68,7 @@ func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
         guard let bannerView = bannerView as? GAMBannerView else { return }
         bannerView.resize(GADAdSizeFromCGSize(size))
     }, failure: { (error) in
-        print("Error occured during searching for Prebid creative size: \(error)")
+        print("Error occured during search for Prebid creative size: \(error)")
     })
 }
 ```
