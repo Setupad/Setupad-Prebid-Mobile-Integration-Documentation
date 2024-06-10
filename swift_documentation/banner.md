@@ -36,7 +36,7 @@ func createBanner(){
 `BannerParameters` are used to customize bid requests. Using `addBannerViewToView()` function, the banner is attached to the layout, and, using `fetchDemand`, a bid request is made to the Prebid Server.
 
 ## Adding a banner element to the layout
-The banner is added to the view using the `addbannerViewToView()` function, to which the banner object is passed. In the provided code below, the banner is added at the bottom of the layout and centered horizontally.
+The banner is added to the view using the `addBannerViewToView()` function, to which the banner object is passed. In the provided code below, the banner is added at the bottom of the layout and centered horizontally.
 ```swift
 func addBannerViewToView(_ bannerView: GAMBannerView) {
     bannerView.translatesAutoresizingMaskIntoConstraints = false
