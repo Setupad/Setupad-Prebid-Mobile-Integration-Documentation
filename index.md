@@ -1,6 +1,7 @@
 ---
 title: About
 layout: home
+nav_order: 1
 ---
 
 # Prebid Mobile SDK integration documentation
