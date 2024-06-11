@@ -119,7 +119,7 @@ The `setTimeoutMillis` sets how much time bidders have to submit their bids. It 
 The second step of sharing the user’s location is setting the `shareGeoLocation` flag to true and the final step is asking user’s permission to collect location data. After doing these 3 steps (permissions in the plist file, setting location flag to true and asking user for permission) Prebid Mobile SDK will send the user's device location to the Prebid Server.
 \
 \
-Setting `setPbsDebug()` to `true` adds a debug flag ("test": 1) into Prebid auction request, which allows to display only test ads and see full Prebid auction response. If none of this required, you can set `pbsDebug()` to false.
+Setting `pbsDebug()` to `true` adds a debug flag ("test": 1) into Prebid auction request, which allows to display only test ads and see full Prebid auction response. If none of this required, you can set `pbsDebug()` to false.
 
 [CocoaPods]: https://cocoapods.org/
 [SKAdNetworkItems]: https://developers.google.com/ad-manager/mobile-ads-sdk/ios/quick-start#expandable-1  
