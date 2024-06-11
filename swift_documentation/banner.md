@@ -73,7 +73,7 @@ func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
 }
 ```
 ## Pausing and resuming auction
-It is necessary to stop the auction when leaving an activity where the banner ad is displayed because if not stopped, the auction continues happening, and displaying ads that are not seen by anyone which produces incorrect viewability results. After coming back to the activity where the auction was stopped, it can be resumed using `resumeAutoRefresh()`.
+It is necessary to stop the auction when leaving an activity where the banner ad is displayed because if not stopped, the auction continues happening, and displaying ads that are not seen by anyone which produces incorrect viewability results. After coming back to the view where the auction was stopped, it can be resumed using `resumeAutoRefresh()`.
 ```swift
 override func viewDidDisappear(_ animated: Bool) {
     print ("Pausing auction")
