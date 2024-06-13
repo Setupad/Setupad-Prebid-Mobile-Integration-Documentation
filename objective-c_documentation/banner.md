@@ -8,7 +8,7 @@ nav_order: 3
 ## Banner
 In the `MyClass.m`, where the banner will be shown, add a function for banner ad. Banner parameters are used to customize the bid request. The values that can be choosen from are `PBApi.MRAID_1`, `PBApi.MRAID_2`, `PBApi.MRAID_3` and `PBApi.OMID_1`.
 `BannerParameters` are used to customize bid requests. 
-```objc
+```objective-c
 self.adSize = CGSizeMake(300, 250);
 ///...
 - (void)createBanner {
