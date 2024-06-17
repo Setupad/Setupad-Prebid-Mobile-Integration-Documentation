@@ -39,7 +39,7 @@ self.adSize = CGSizeMake(300, 250);
 
 ## Adding a banner element to the layout
 The banner is added to the view using the `addBannerViewToView()` function, to which the banner object is passed. In the provided code below, the banner is added at the bottom of the layout and centered horizontally.
-```objc
+```objectivec
 - (void)addBannerViewToView:(UIView *)bannerView {
     bannerView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:bannerView];
@@ -64,7 +64,7 @@ The banner is added to the view using the `addBannerViewToView()` function, to w
 
 ## Ad listeners
 Ad listeners are used to check whether the ad was successfully loaded. In addition, the `findPrebidCreativeSize` method is used to resize the ad if needed. In order for the listeners to work properly, they have to be added after the function that contains the banner code.
-```objc
+```objectivec
 - (void)bannerViewDidReceiveAd:(GADBannerView *)bannerView {
     [AdViewUtils findPrebidCreativeSize:bannerView success:^(CGSize size) {
         [self.gamBanner resize:GADAdSizeFromCGSize(size)];
@@ -79,7 +79,7 @@ Ad listeners are used to check whether the ad was successfully loaded. In additi
 ```
 ## Pausing and resuming auction
 It is necessary to stop the auction when leaving an activity where the banner ad is displayed because if not stopped, the auction continues happening, and displaying ads that are not seen by anyone which produces incorrect viewability results. After coming back to the view where the auction was stopped, it can be resumed using `resumeAutoRefresh`.
-```objc
+```objectivec
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:(BOOL)animated];
     [self.bannerAdUnit stopAutoRefresh];
