@@ -13,7 +13,7 @@ To show an interstitial ad, there is no need to add an element to the layout whe
     self.interstitialAdUnit = [[InterstitialAdUnit alloc] initWithConfigId: CONFIG_ID minWidthPerc:60 minHeightPerc:80];
     
     GAMRequest *gamRequest = [GAMRequest new];
-    @ weakify(self);
+    @weakify(self);
     [self.interstitialAdUnit fetchDemandWithAdObject:gamRequest completion:^(enum ResultCode resultCode){
         @strongify(self);
         if(!self) {return;}
