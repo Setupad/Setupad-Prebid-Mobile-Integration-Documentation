@@ -4,7 +4,7 @@ layout: home
 parent: Flutter
 nav_order: 6
 ---
-This is an example code on how one might integrate plugin into their project. The code was created using Flutter 2.10.5 version, hence if you are using a newer version, you might need to add `super.key` to your classes' constructors.
+This is an example code on how one might integrate plugin into their project. The code was created using Flutter 2.10.5 version, hence if you are using a newer version, you might need to add `super.key` to your classes' constructors. 
 
 ```dart
 import 'package:flutter/material.dart';
