@@ -20,7 +20,7 @@ Note: if you are getting errors about using wrong `minSdkVersion` or `compileVer
 In your `pubspec.yaml` file’s dependencies add these lines to include Setupad's Prebid plugin for Flutter and run 'flutter pub get' command in terminal.
 ```yaml
 dependencies:
-  setupad_prebid_flutter: 0.0.1
+  setupad_prebid_flutter: 1.0.1
 ```
 In case the command fails, make sure you are logged into your Gitlab account using terminal.
 
