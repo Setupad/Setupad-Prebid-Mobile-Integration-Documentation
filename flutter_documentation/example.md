@@ -8,6 +8,7 @@ This is an example code on how one might integrate plugin into their project. Th
 
 ```dart
 import 'package:flutter/material.dart';
+import 'package:setupad_prebid_flutter/prebid_ads_controller.dart';
 import 'package:setupad_prebid_flutter/prebid_mobile.dart';
 import 'package:setupad_prebid_flutter/prebid_ads.dart';
 
@@ -47,36 +48,39 @@ class MyAppState extends StatefulWidget {
 class _MyAppState extends State<MyAppState> {
   String _authStatus = 'Unknown';
 
+  final _bannerController = PrebidAdController();
+  final _interstitialController = PrebidAdController();
+
   @override
   void initState() {
-  super.initState();
+    super.initState();
 
-  WidgetsFlutterBinding.ensureInitialized()
-      .addPostFrameCallback((_) => initPlugin());
+    WidgetsFlutterBinding.ensureInitialized()
+        .addPostFrameCallback((_) => initPlugin());
   }
 
   Future<void> showCustomTrackingDialog(BuildContext context) async =>
-    await showDialog<void>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Dear User'),
-        content: const Text(
-          'We care about your privacy and data security. We keep this app free by showing ads. '
-          'Can we continue to use your data to tailor ads for you?\n\nYou can change your choice anytime in the app settings. '
-          'Our partners will collect data and use a unique identifier on your device to show you ads.',
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Continue'),
+      await showDialog<void>(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Dear User'),
+          content: const Text(
+            'We care about your privacy and data security. We keep this app free by showing ads. '
+            'Can we continue to use your data to tailor ads for you?\n\nYou can change your choice anytime in the app settings. '
+            'Our partners will collect data and use a unique identifier on your device to show you ads.',
           ),
-        ],
-      ),
-    );
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Continue'),
+            ),
+          ],
+        ),
+      );
 
   Future<void> initPlugin() async {
     final TrackingStatus status =
-    await AppTrackingTransparency.trackingAuthorizationStatus;
+        await AppTrackingTransparency.trackingAuthorizationStatus;
     if (status == TrackingStatus.notDetermined) {
       await showCustomTrackingDialog(context);
       await Future.delayed(const Duration(milliseconds: 200));
@@ -86,24 +90,6 @@ class _MyAppState extends State<MyAppState> {
   }
 
   bool _showInterstitial = false;
-
-  PrebidAd prebidBanner = const PrebidAd(
-    adType: 'banner',
-    configId: '6143',
-    adUnitId: '/147246189/app_test',
-    width: 300,
-    height: 250,
-    refreshInterval: 30,
-  );
-
-  PrebidAd prebidInterstitial = const PrebidAd(
-    adType: 'interstitial',
-    configId: '6145',
-    adUnitId: '/147246189/app_test',
-    width: 80,
-    height: 60,
-    refreshInterval: 0,
-  );
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +102,15 @@ class _MyAppState extends State<MyAppState> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            prebidBanner,
+            PrebidAd(
+              adType: 'banner',
+              configId: '6143',
+              adUnitId: '/147246189/app_test',
+              width: 300,
+              height: 250,
+              refreshInterval: 30,
+              controller: _bannerController,
+            ),
             ElevatedButton(
               child: const Text('Show interstitial ad'),
               onPressed: () {
@@ -128,21 +122,36 @@ class _MyAppState extends State<MyAppState> {
             ElevatedButton(
               child: const Text('Pause auction'),
               onPressed: () {
-                prebidBanner.pauseAuction();
+                _bannerController.pauseAuction();
               },
             ),
             ElevatedButton(
               child: const Text('Resume auction'),
               onPressed: () {
-                prebidBanner.resumeAuction();
+                _bannerController.resumeAuction();
+              },
+            ),
+            ElevatedButton(
+              child: const Text('Destroy auction'),
+              onPressed: () {
+                _bannerController.destroyAuction();
               },
             ),
             if (_showInterstitial)
-              prebidInterstitial,
+              PrebidAd(
+                adType: 'interstitial',
+                configId: '6145',
+                adUnitId: '/147246189/app_test',
+                width: 80,
+                height: 60,
+                refreshInterval: 0,
+                controller: _interstitialController,
+              ),
           ],
         ),
       ),
     );
   }
 }
+
 ```
