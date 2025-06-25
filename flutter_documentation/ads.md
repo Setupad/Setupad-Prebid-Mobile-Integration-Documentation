@@ -10,7 +10,7 @@ import 'package:setupad_prebid_flutter/prebid_ads.dart';
 import 'package:setupad_prebid_flutter/prebid_ads_controller.dart';
 ```
 Currently, this plugin supports two types of ads: banners and interstitial ads. When adding ad object, you need to specify the ad type, where the ad type can be written in lowercase ("banner"), uppercase ("BANNER") or capitalization ("Banner"). If there will be a typo in the ad type, an error will be shown in the console. 
-
+ 
 ## Banner
 To display a banner, first you need to create a `PrebidAdController` class object and then add `PrebidAd` class object, that uses the already created controller, to your widget. 
 ```dart
